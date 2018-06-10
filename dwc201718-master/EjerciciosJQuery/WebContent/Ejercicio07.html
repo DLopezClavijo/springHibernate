@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio07</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {	
+	$("button#mostrar").click(function () {
+		var selec = $("input:radio:checked").val();
+		$("span#resopcion").text(selec);
+		$("#valor").val(selec);
+		return false;
+	});
+	$("button#activador").click(function () {
+		$("input#este").prop("disabled", false);
+		$("input#este").empty();
+		return false;
+	});
+
+	$("input:checkbox#chequeo").prop("checked", true);
+
+	$("button#desmarcar").click(function () {
+		$("input:checkbox#chequeo").prop("checked", false);
+	});
+
+	$("#insertarTexto").click(function () {
+		/* $("#caja").html("<p><b>HTML</b></p>"); */
+		$("#caja").prepend("<p>Al Inicio</p>");
+		$("#caja").append("<p>Al Final</p>");
+		
+		$("#caja").before("<div>Antes</div>");
+		$("#caja").after("<div>Despues</div>");
+
+		$("#caja").wrap("<div style='border: 2px solid black;'></div>");
+		
+		$("#resultado").text("HTML");
+
+		$("#resultado").replaceWith("<div>RESULTADO</div>");
+	});
+
+	$("#checkMail").click(function () {
+		if ($(this).is(":checked")) {
+			$("#mail").append("<input id='email' type='text'>");
+		} else {
+			$("#email").remove();
+		}
+	});
+});
+
+</script>
+</head>
+<body>
+<form action="">
+	<input type="radio" name="ra" value="Opción 1"/>Opción 1 <br />
+	<input type="radio" name="ra" value="Opción 2"/>Opción 2 <br />
+	<input type="radio" name="ra" value="Opción 3"/>Opción 3 <br />
+	<input type="radio" name="ra" value="Opción 4"/>Opción 4<br />
+	<button id="mostrar">Mostrar</button>
+	<span id="resopcion"></span>
+	<input type="text" id="valor" />
+</form>
+
+<form action="">
+	<input type="text" id="este" value="Texto 1" disabled="disabled"><br />
+	<input type="text" value="Texto 2" disabled="disabled"><br />
+	<input type="text" value="Texto 3" disabled="disabled"><br />
+	<input type="text" value="Texto 4" disabled="disabled"><br />
+	<button id="activador">Activar Textos</button>
+</form>
+
+<input type="checkbox" id="chequeo" value="Sí">Sí<br />
+<button id="desmarcar">Desmarcar</button>
+<br />
+
+<input type="button" value="Insertar" id="insertarTexto"><br />
+<div id="caja">Ejemplo</div><br />
+Resultado<div id="resultado"></div>
+<br />
+
+<p id="mail"><input type="checkbox" id="checkMail">Dirección de Email</p>
+
+
+</body>
+</html>

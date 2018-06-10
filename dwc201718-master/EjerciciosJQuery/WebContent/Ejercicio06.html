@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio06</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("div").mouseover(function () {
+		$(this).addClass("colordefondo");
+		if ($(this).hasClass("clase")) {
+			$(this).addClass("color");
+		}
+	});
+	$("div").mouseout(function () {
+		$(this).removeClass("colordefondo");
+		if ($(this).hasClass("clase")) {
+			$(this).removeClass("color");
+		}
+	});
+	$("button.unBoton").click(function () {
+		$("div").toggleClass("ocultarmostrar");
+	});
+	$("button.otroBoton").click(function () {
+		var estilo = $("span").attr("style");
+		$("div#estiloSpan").text(estilo);
+	});
+	$("button.esteBoton").click(function () {
+		$("div#estiloSpan").css({width: "300px", background: "blue"});
+		/* $("div.estiloDiv").attr("style", "background: blue"); */
+	});
+});
+</script>
+
+<style type="text/css">
+div {
+	width: 150px;
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+.colordefondo {
+	background-color: #9cf;
+	border: 1px solid black;
+}
+.color {
+	color: red;
+}
+.ocultarmostrar {
+	display: none;
+}
+</style>
+
+</head>
+<body>
+	<button class="unBoton">Mostrar / Ocultar</button>
+	<button class="otroBoton">Ver Estilo</button>
+	<button class="esteBoton">Añadir Estilo</button>
+	
+	<div>Capa 1</div>
+	<div class="clase">Capa 2</div>
+	<div>Capa 3</div>
+	
+	<span style="font-style: italic;">SPAN</span><br />
+	El estilo del SPAN es: <div id="estiloSpan" class="estiloDiv"></div>
+</body>
+</html>

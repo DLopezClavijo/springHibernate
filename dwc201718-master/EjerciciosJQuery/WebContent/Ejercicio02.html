@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio02</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	// Selección por identificador
+	$("#dos").css("border", "1px solid black");
+	// Selección por nombre de etiqueta
+	$("div").css("background", "blue");
+	// Selección por clase
+	$(".negrita").css("font-weight", "bold");
+	// Seleccionar todos los elementos
+	$("*").css("color", "red");
+	// Seleccionar solo algunos
+	$("div,p.negrita").css("font-style", "italic");
+	// Seleccionar todos los elementos dentro de la capa box
+	//$("#box *").css("border", "1px solid black");
+	// Seleccionar todos los hijos directos de la capa box
+	$("#box > *").css("border", "1px solid black");
+});
+</script>
+<style type="text/css">
+p {
+	width: 200px;
+	padding: 3px;
+}
+</style>
+</head>
+<body>
+	<p class="negrita">Párrafo 1</p>
+	<p id="dos">Párrafo 2</p>
+	<div>Capa 1</div>
+	<p>Párrafo 3</p>
+	<span>Esto es un span</span>
+	<div id="box">
+		<p>Título <span>Subtítulo</span></p>
+		<div>Texto</div>
+		<span>Pie</span>
+	</div>
+	
+</body>
+</html>

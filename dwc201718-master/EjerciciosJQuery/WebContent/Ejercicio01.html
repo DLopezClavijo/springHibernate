@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio01</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("div.menu_punto").hide();
+	$("p.menu_capitulo").click(function () {
+		$(this).next("div.menu_punto").slideDown(300).siblings("div.menu_punto").slideUp("slow");
+	});
+});
+</script>
+<style type="text/css">
+body {
+	margin: 10px;
+}
+.menu {
+	width: 150px;
+}
+.menu_capitulo {
+	padding: 5px;
+	cursor: pointer;
+	position: relative;
+	margin: 1px;
+	font-weight: bold;
+	background: #9cf;
+	border: 1px solid black;
+}
+.menu_punto a {
+	display: block;
+	color: black;
+	background-color: white;
+	padding-left: 30px;
+	text-decoration: none;
+}
+.menu_punto a:hover {
+	color: black;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div>
+	<div class="menu">
+		<p class="menu_capitulo">Capítulo 1</p>
+		<div class="menu_punto">
+			<a href="#">Punto 1</a>
+			<a href="#">Punto 2</a>
+			<a href="#">Punto 3</a>
+		</div>
+		<p class="menu_capitulo">Capítulo 2</p>
+		<div class="menu_punto">
+			<a href="#">Punto 1</a>
+			<a href="#">Punto 2</a>
+			<a href="#">Punto 3</a>
+		</div>
+		<p class="menu_capitulo">Capítulo 3</p>
+		<div class="menu_punto">
+			<a href="#">Punto 1</a>
+			<a href="#">Punto 2</a>
+			<a href="#">Punto 3</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio09</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#parrafo").on("mouseover mouseout", function () {
+		$(this).toggleClass("over");
+	});
+
+	function saludo(event) {
+		alert("Hola " + event.data.nombre + " , " + event.data.edad + " , " + event.data.otro);
+	}
+	
+	$("#boton").on("click", {nombre: "Yo", edad: "38", otro: "lo que sea"}, saludo);
+});
+</script>
+<style type="text/css">
+.over {
+	background: blue;
+}
+</style>
+
+</head>
+<body>
+	<p id="parrafo">kdjflkjsd hfklsd hfkljds hfkljsd ds hkjfdshkj
+		fhksdlj hfklsdj hflkjsd hlkfj sdhkljfhsdl kjfhsdlkj fhskdlj hfsdlkj
+		hfksldj hflkjs hflkjsd hkfjsd hkl kdjflkjsd hfklsd hfkljds hfkljsd ds
+		hkjfdshkj fhksdlj hfklsdj hflkjsd hlkfj sdhkljfhsdl kjfhsdlkj fhskdlj
+		hfsdlkj hfksldj hflkjs hflkjsd hkfjsd hkl kdjflkjsd hfklsd hfkljds
+		hfkljsd ds hkjfdshkj fhksdlj hfklsdj hflkjsd hlkfj sdhkljfhsdl
+		kjfhsdlkj fhskdlj hfsdlkj hfksldj hflkjs hflkjsd hkfjsd hkl kdjflkjsd
+		hfklsd hfkljds hfkljsd ds hkjfdshkj fhksdlj hfklsdj hflkjsd hlkfj
+		sdhkljfhsdl kjfhsdlkj fhskdlj hfsdlkj hfksldj hflkjs hflkjsd hkfjsd
+		hkl</p>
+		
+	<button id="boton">Probar</button>
+</body>
+</html>

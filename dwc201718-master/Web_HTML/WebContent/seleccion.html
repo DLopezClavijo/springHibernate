@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Seleccion</title>
+
+<script type="text/javascript">
+	function init() {
+		//document.getElementsByTagName('p')[0].onclick = mostrarAlert;
+		
+		//document.getElementsByClassName('clase')[1].onclick = mostrarAlert;
+		
+		//document.querySelector("#principal p:first-child").onclick = mostrarAlert;
+		
+		var lista = document.querySelectorAll("#principal p");
+		//var lista = document.getElementById("principal").querySelectorAll("p");
+		//lista[1].onclick = mostrarAlert;
+		//for (var f = 0;f < lista.length; f++) {
+		//	lista[f].onclick = mostrarAlert;
+		//}
+		lista.forEach(function(elemento) {
+			elemento.onclick = mostrarAlert;
+		});
+	}
+	
+	function mostrarAlert() {
+		alert('ALERTA');
+	}
+
+	window.addEventListener("load", init, false);
+</script>
+
+</head>
+<body>
+	<div id="principal">
+		<p class="clase">Párrafo 1</p>
+		<p class="clase">Párrafo 2</p>
+		<span>jkhfdkj</span>
+	</div>
+</body>
+</html>

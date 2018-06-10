@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio08</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#boton").click(function () {
+		$("#lista").find("li").each( function (i) {
+			$(this).html("<b>Elemento " + i + "</b>");
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<button id="boton">Lista</button>
+	<ul id="lista">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

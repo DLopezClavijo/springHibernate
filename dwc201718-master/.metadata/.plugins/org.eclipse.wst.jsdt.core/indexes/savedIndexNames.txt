@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+C:\Users\Dani\Desktop\dwc201718-master\dwc201718-master\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3598548951.index
+91639485.index
+2647411561.index
+554316433.index

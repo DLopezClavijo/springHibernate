@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio04</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	// Seleccionar el primer enlace dentro del párrafo
+	//$("p a:first-child").css("background", "gray");
+	// Seleccionar el último enlace dentro del párrafo
+	//$("p a:last-child").css("background", "cyan");
+	// Seleccionar un enlace en particular
+	$("p a:nth-child(1)").append( "<span> - 2nd!</span>" );
+	$("ul li:nth-child(2)").append( "<span> - 2nd!</span>" );
+});
+</script>
+</head>
+<body>
+	<p>
+		<a href="#">Enlace 1</a><a href="#">Enlace 2</a> <a
+			href="#">Enlace 3</a><a href="#">Enlace 4</a><a
+			href="#">Enlace 5</a>
+	</p>
+
+	<div>
+		<ul>
+			<li>John</li>
+			<li>Karl</li>
+			<li>Brandon</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>Sam</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>Glen</li>
+			<li>Tane</li>
+			<li>Ralph</li>
+			<li>David</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Local Storage</title>
+
+<script type="text/javascript">
+	function enviar() {
+		if (document.getElementById("chequeo").checked) {
+			localStorage.setItem("emailUsuario", document.formulario.email.value);
+		} else {
+			localStorage.removeItem("emailUsuario");
+		}
+		
+		return true;
+	}
+
+	function init() {
+		var auxEmail = localStorage.getItem("emailUsuario");
+		if (auxEmail != null)
+			document.getElementById("email").value = auxEmail; 
+	}
+	
+	window.addEventListener("load", init, false);
+</script>
+
+</head>
+<body>
+	<form action="" method="post" name="formulario" onsubmit="enviar()">
+		Email: <input type="email" name="email" id="email" autofocus="autofocus" required="required">
+		<br/>
+		Password: <input type="password" name="password" id="password" required="required">
+		<br/>
+		<input type="checkbox" name="chequeo" id="chequeo">Guardar Email
+		<br/>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>

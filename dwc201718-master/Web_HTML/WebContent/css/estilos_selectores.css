@@ -1,0 +1,41 @@
+@charset "ISO-8859-1";
+
+a, p {
+	font-size: 18px;
+}
+
+div a {
+	color: red;
+}
+
+div#capa1 {
+	background: blue;
+}
+
+.letraGrande {
+	font-size: 20px;
+}
+
+.nosubrayado {
+	text-decoration: none;
+}
+
+div#capa1 a.encima:hover {
+	background: gray;
+}
+
+p#miparrafo:FIRST-LINE {
+	background: green;
+}
+
+div#capa1 * {
+	background: lime;
+}
+
+div > a {
+	font-size: 40px;
+}
+
+div.capa2 {
+	border: 1px solid #c0c0c0;
+}

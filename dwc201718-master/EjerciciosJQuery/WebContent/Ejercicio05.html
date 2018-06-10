@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejercicio05</title>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	// Seleccionar los párrafos que tengan por contenido "ca"
+	$("p:contains(ca)").css("background", "blue");
+	// Seleccionar los párrafos vacíos
+	$("p:empty").css("background", "red");
+	// Seleccionar los párrafos que tengan hijos
+	$("p:parent").css("background", "green");
+	// Seleccionar los párrafos que tienen algún enlace
+	$("p:has(a)").css("background", "yellow");
+	// Seleccionar todos los párrafos visibles
+	$("p:visible").css("background", "black");
+	$("button").click(function () {
+		$("p:hidden").css("background", "green").show();
+	});
+});
+</script>
+<style type="text/css">
+p {
+	width: 200px;
+	height: 20px;
+}
+</style>
+</head>
+<body>
+	<button>Ver Párrafos Invisibles</button>
+	<p>Informática</p>
+	<p>Electrónica</p>
+	<p>Administración</p>
+	<p></p>
+	<p>
+		Enlace <a href="#">Google</a>
+	</p>
+	<p style="display: none">Capa Invisible</p>
+</body>
+</html>
