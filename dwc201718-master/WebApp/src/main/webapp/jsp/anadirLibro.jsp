@@ -1,6 +1,6 @@
 <%@page import="es.altair.bean.Libro"%>
-<%@page import="es.altair.dao.LibroDAOImplHibernate"%>
-<%@page import="es.altair.dao.LibroDAO"%>
+<%@page import="es.altair.dao.ComponenteDAOImplHibernate"%>
+<%@page import="es.altair.dao.ComponenteDAO"%>
 <%@page import="es.altair.bean.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

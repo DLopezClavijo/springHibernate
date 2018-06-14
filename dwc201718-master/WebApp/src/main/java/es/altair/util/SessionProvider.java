@@ -21,7 +21,7 @@ public class SessionProvider {
 				.setProperty("hibernate.connection.password", "root")
 				.setProperty("hibernate.show_sql", "true")
 				.addAnnotatedClass(es.altair.bean.Usuario.class)
-				.addAnnotatedClass(es.altair.bean.Libro.class);
+				.addAnnotatedClass(es.altair.bean.Componente.class);
 	}
 	
 	public static Session getSession() {

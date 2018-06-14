@@ -1,4 +1,4 @@
-<%@page import="java.io.OutputStream"%><%@page import="es.altair.dao.LibroDAOImplHibernate"%><%@page import="es.altair.dao.LibroDAO"%><%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%><%
+<%@page import="java.io.OutputStream"%><%@page import="es.altair.dao.ComponenteDAOImplHibernate"%><%@page import="es.altair.dao.ComponenteDAO"%><%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%><%
 try {
 	String idLibro = request.getParameter("imag");
 	LibroDAO lDAO = new LibroDAOImplHibernate();

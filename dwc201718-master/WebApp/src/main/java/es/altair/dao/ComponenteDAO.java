@@ -3,20 +3,20 @@ package es.altair.dao;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 
-import es.altair.bean.Libro;
+import es.altair.bean.Componente;
 import es.altair.bean.Usuario;
 
-public interface LibroDAO {
+public interface ComponenteDAO {
 
-	List<Libro> listar (Usuario u);
+	List<Componente> listar (Usuario u);
 	
-	byte[] obtenerPortadaPorId(int idLibro);
+	byte[] obtenerPortadaPorId(int idComponente);
 
 	void borrar(String uuid);
 	
-	Libro obtenerLibroPorUUID(String uuid);
+	Componente obtenerLibroPorUUID(String uuid);
 
 	void actualizar(String titulo, String autor, int isbn, ByteArrayOutputStream os, String uuid, Usuario usuario);
 
-	void insertar(Libro l);
+	void insertar(Componente l);
 }

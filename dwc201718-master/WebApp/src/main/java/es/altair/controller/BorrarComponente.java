@@ -6,19 +6,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.altair.dao.LibroDAO;
-import es.altair.dao.LibroDAOImplHibernate;
+import es.altair.dao.ComponenteDAO;
+import es.altair.dao.ComponenteDAOImplHibernate;
 
 /**
- * Servlet implementation class BorrarLibro
+ * Servlet implementation class BorrarComponente
  */
-public class BorrarLibro extends HttpServlet {
+public class BorrarComponente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BorrarLibro() {
+    public BorrarComponente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class BorrarLibro extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uuid = request.getParameter("uuid");
 		
-		LibroDAO lDAO = new LibroDAOImplHibernate();
+		ComponenteDAO lDAO = new ComponenteDAOImplHibernate();
 		lDAO.borrar(uuid);
 		
 		response.sendRedirect("jsp/principalUsu.jsp");

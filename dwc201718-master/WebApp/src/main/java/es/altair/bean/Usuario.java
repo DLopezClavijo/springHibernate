@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
 	private int tipo;
 
 	@OneToMany(mappedBy="usuario", cascade=CascadeType.ALL)
-	private Set<Libro> libros = new HashSet<Libro>();
+	private Set<Componente> componentes = new HashSet<Componente>();
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -89,12 +89,12 @@ public class Usuario implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public Set<Libro> getLibros() {
-		return libros;
+	public Set<Componente> getComponentes() {
+		return componentes;
 	}
 
-	public void setLibros(Set<Libro> libros) {
-		this.libros = libros;
+	public void setComponentes(Set<Componente> componentes) {
+		this.componentes = componentes;
 	}
 
 	@Override

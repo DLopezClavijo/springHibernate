@@ -6,20 +6,20 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import es.altair.bean.Libro;
+import es.altair.bean.Componente;
 import es.altair.bean.Usuario;
 import es.altair.util.SessionProvider;
 
-public class LibroDAOImplHibernate implements LibroDAO {
+public class ComponenteDAOImplHibernate implements ComponenteDAO {
 
-	public List<Libro> listar(Usuario u) {
-		List<Libro> libros = new ArrayList<Libro>();
+	public List<Componente> listar(Usuario u) {
+		List<Componente> componentes = new ArrayList<Componente>();
 
 		Session sesion = SessionProvider.getSession();
 		try {
 			sesion.beginTransaction();
 
-			libros = sesion.createQuery("FROM Libro l WHERE usuario=:usu").setParameter("usu", u).list();
+			componentes = sesion.createQuery("FROM Componente c WHERE usuario=:usu").setParameter("usu", u).list();
 
 			sesion.getTransaction().commit();
 		} catch (Exception e) {
@@ -29,18 +29,18 @@ public class LibroDAOImplHibernate implements LibroDAO {
 			// sf.close();
 		}
 
-		return libros;
+		return componentes;
 	}
 
-	public byte[] obtenerPortadaPorId(int idLibro) {
+	public byte[] obtenerPortadaPorId(int idComponente) {
 		byte[] imagen = null;
 
 		Session sesion = SessionProvider.getSession();
 		try {
 			sesion.beginTransaction();
 
-			imagen = (byte[]) sesion.createQuery("Select l.portada From Libro l Where l.idLibro=:id")
-					.setParameter("id", idLibro).uniqueResult();
+			imagen = (byte[]) sesion.createQuery("Select c.foto From Componente c Where c.idComponente=:id")
+					.setParameter("id", idComponente).uniqueResult();
 
 			sesion.getTransaction().commit();
 		} catch (Exception e) {
@@ -58,25 +58,24 @@ public class LibroDAOImplHibernate implements LibroDAO {
 		try {
 			sesion.beginTransaction();
 
-			sesion.createQuery("DELETE FROM Libro WHERE uuid=:clave").setParameter("clave", uuid).executeUpdate();
+			sesion.createQuery("DELETE FROM Componente WHERE uuid=:clave").setParameter("clave", uuid).executeUpdate();
 
 			sesion.getTransaction().commit();
 		} catch (Exception e) {
-			// TODO: handle exception
 		} finally {
 			sesion.close();
-			// sf.close();
+			
 		}
 	}
 
-	public Libro obtenerLibroPorUUID(String uuid) {
-		Libro l = new Libro();
+	public Componente obtenerComponentePorUUID(String uuid) {
+		Componente l = new Componente();
 
 		Session sesion = SessionProvider.getSession();
 		try {
 			sesion.beginTransaction();
 
-			l = (Libro) sesion.createQuery("FROM Libro l WHERE l.uuid=:clave").setParameter("clave", uuid)
+			l = (Componente) sesion.createQuery("FROM Componente l WHERE l.uuid=:clave").setParameter("clave", uuid)
 					.uniqueResult();
 
 			sesion.getTransaction().commit();
@@ -89,27 +88,27 @@ public class LibroDAOImplHibernate implements LibroDAO {
 		return l;
 	}
 
-	public void actualizar(String titulo, String autor, int isbn, ByteArrayOutputStream os, String uuid,
+	public void actualizar(String modelo, String marca, int precio, ByteArrayOutputStream os, String uuid,
 			Usuario usuario) {
 		Session sesion = SessionProvider.getSession();
 		try {
 			sesion.beginTransaction();
 
 			if (os != null) {
-				sesion.createQuery("UPDATE Libro SET titulo=:t, autor=:a, isbn=:i, " 
-						+ "portada=:p WHERE uuid=:clave")
-						.setParameter("t", titulo)
-						.setParameter("a", autor)
-						.setParameter("i", isbn)
-						.setParameter("p", os.toByteArray())
+				sesion.createQuery("UPDATE Componente SET modelo=:t, marca=:a, precio=:i, " 
+						+ "portada=:f WHERE uuid=:clave")
+						.setParameter("m", modelo)
+						.setParameter("x", marca)
+						.setParameter("p", precio)
+						.setParameter("f", os.toByteArray())
 						.setParameter("clave", uuid)
 						.executeUpdate();
 			} else {
-				sesion.createQuery("UPDATE Libro SET titulo=:t, autor=:a, isbn=:i, " 
+				sesion.createQuery("UPDATE Componente SET modelo=:t, marca=:a, precio=:i, " 
 						+ " WHERE uuid=:clave")
-						.setParameter("t", titulo)
-						.setParameter("a", autor)
-						.setParameter("i", isbn)
+						.setParameter("m", modelo)
+						.setParameter("x", marca)
+						.setParameter("p", precio)
 						.setParameter("clave", uuid)
 						.executeUpdate();
 			}
@@ -123,7 +122,7 @@ public class LibroDAOImplHibernate implements LibroDAO {
 		}
 	}
 
-	public void insertar(Libro l) {
+	public void insertar(Componente l) {
 		Session sesion = SessionProvider.getSession();
 		try {
 			sesion.beginTransaction();

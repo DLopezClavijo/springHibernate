@@ -16,24 +16,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import es.altair.bean.Libro;
+import es.altair.bean.Componente;
 import es.altair.bean.Usuario;
-import es.altair.dao.LibroDAO;
-import es.altair.dao.LibroDAOImplHibernate;
+import es.altair.dao.ComponenteDAO;
+import es.altair.dao.ComponenteDAOImplHibernate;
 
 /**
- * Servlet implementation class AnadirLibro
+ * Servlet implementation class AnadirComponente
  */
 @MultipartConfig
-public class AnadirLibro extends HttpServlet {
+public class AnadirComponente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AnadirLibro() {
+	public AnadirComponente() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -51,20 +51,19 @@ public class AnadirLibro extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String uuid = UUID.randomUUID().toString();
-		String titulo = request.getParameter("titulo");
-		String autor = request.getParameter("autor");
-		int isbn = Integer.parseInt(request.getParameter("isbn"));
+		String modelo = request.getParameter("modelo");
+		String marca = request.getParameter("marca");
+		int precio = Integer.parseInt(request.getParameter("precio"));
 
-		// Tratamiento de la imagen
-		Part filePart = request.getPart("portada");
+		
+		Part filePart = request.getPart("foto");
 
 		InputStream inputS = null;
 		ByteArrayOutputStream os = null;
 		if (!getFileName(filePart).equals("")) {
 			inputS = filePart.getInputStream();
 
-			// Escalar la imagen
+			
 			BufferedImage imageBuffer = ImageIO.read(inputS);
 			Image tmp = imageBuffer.getScaledInstance(640, 640, BufferedImage.SCALE_FAST);
 			BufferedImage buffered = new BufferedImage(640, 640, BufferedImage.TYPE_INT_RGB);
@@ -76,12 +75,12 @@ public class AnadirLibro extends HttpServlet {
 
 		HttpSession sesion = request.getSession();
 
-		LibroDAO lDAO = new LibroDAOImplHibernate();
+		ComponenteDAO cDAO = new ComponenteDAOImplHibernate();
 
-		Libro l = new Libro(titulo, autor, isbn, os.toByteArray(), uuid, 
+		Componente c = new Componente(modelo, marca, precio, os.toByteArray(),
 				((Usuario) sesion.getAttribute("usuLogeado")));
 		
-		lDAO.insertar(l);
+		cDAO.insertar(c);
 
 		response.sendRedirect("jsp/principalUsu.jsp");
 

@@ -26,13 +26,13 @@
   	<servlet-name>BorrarLibro</servlet-name>
   	<display-name>BorrarLibro</display-name>
   	<description></description>
-  	<servlet-class>es.altair.controller.BorrarLibro</servlet-class>
+  	<servlet-class>es.altair.controller.BorrarComponente</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>EditarLibro</servlet-name>
   	<display-name>EditarLibro</display-name>
   	<description></description>
-  	<servlet-class>es.altair.controller.EditarLibro</servlet-class>
+  	<servlet-class>es.altair.controller.EditarComponente</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>AnadirLibro</servlet-name>

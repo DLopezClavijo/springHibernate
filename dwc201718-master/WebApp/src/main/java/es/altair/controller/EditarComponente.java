@@ -15,22 +15,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import es.altair.bean.Libro;
+import es.altair.bean.Componente;
 import es.altair.bean.Usuario;
-import es.altair.dao.LibroDAO;
-import es.altair.dao.LibroDAOImplHibernate;
+import es.altair.dao.ComponenteDAO;
+import es.altair.dao.ComponenteDAOImplHibernate;
 
 /**
- * Servlet implementation class EditarLibro
+ * Servlet implementation class EditarComponente
  */
 @MultipartConfig
-public class EditarLibro extends HttpServlet {
+public class EditarComponente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditarLibro() {
+    public EditarComponente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -71,7 +71,7 @@ public class EditarLibro extends HttpServlet {
 		
 		HttpSession sesion = request.getSession();
 		
-		LibroDAO lDAO = new LibroDAOImplHibernate();
+		ComponenteDAO lDAO = new ComponenteDAOImplHibernate();
 		lDAO.actualizar(titulo, autor, isbn, os, uuid, 
 				((Usuario)sesion.getAttribute("usuLogeado")));
 		
